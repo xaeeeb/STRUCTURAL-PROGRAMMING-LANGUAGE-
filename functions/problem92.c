@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+void add(int a, int b) {
+    printf("Result: %d\n", a + b);
+}
+
+void subtract(int a, int b) {
+    printf("Result: %d\n", a - b);
+}
+
+void multiply(int a, int b) {
+    printf("Result: %d\n", a * b);
+}
+
+int main() {
+    int choice;
+    int x = 10;
+    int y = 5;
+
+    void (*operations[3])(int, int) = {
+        add,
+        subtract,
+        multiply
+    };
+
+    printf("x = %d, y = %d\n\n", x, y);
+
+    printf("Choose an operation:\n");
+    printf("0: Add\n");
+    printf("1: Subtract\n");
+    printf("2: Multiply\n");
+
+    scanf("%d", &choice);
+
+    if (choice >= 0 && choice < 3) {
+        operations[choice](x, y);
+    } else {
+        printf("Invalid choice!\n");
+    }
+
+    return 0;
+}
